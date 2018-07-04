@@ -133,3 +133,4 @@ pes_tipo varchar(20) NOT NULL
 INSERT INTO bel_pessoa (pes_nome, pes_usuario, pes_senha, pes_tipo) VALUES 
 ('ADMIN','admin', 'admin', 'ROLE_ADMINISTRADOR'),
 ('USUÁRIO','usuario', 'usuario', 'ROLE_CLIENTE');
+
