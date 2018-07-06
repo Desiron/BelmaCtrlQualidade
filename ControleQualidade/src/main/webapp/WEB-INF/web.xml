@@ -10,13 +10,26 @@
     <res-type>javax.sql.DataSource</res-type>
     <res-auth>Container</res-auth>
   </resource-ref>
+  
   <context-param>
-    <param-name>contextConfigLocation</param-name>
+  
+    <param-name>
+   		<!-- primefaces.THEME -->
+    	contextConfigLocation    	
+    </param-name>
+    
     <param-value>
+   			<!-- overcast -->
 			/WEB-INF/applicationContext.xml
 			/WEB-INF/applicationContext-security.xml
 		</param-value>
   </context-param>
+  
+ <!--  <context-param>
+	<param-name>primefaces.THEME</param-name>
+	<param-value>overcast</param-value>
+</context-param> -->
+
   <filter>
     <filter-name>springSecurityFilterChain</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
