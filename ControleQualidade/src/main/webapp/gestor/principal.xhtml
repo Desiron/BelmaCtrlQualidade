@@ -10,12 +10,10 @@
 	<title>Área do Administrador</title>
 </h:head>
 <h:body>
-	<h:form>
+	<h:form id="Msg">
 		<p:growl id="ff" life="2000" />
-		<p:outputLabel value="TESTE ADMIN" />
-		<p:commandButton value="Cadastrar Usuário" action="#{pessoaCtrl.cadUsuario}" />
-		<p:commandButton value=" Usuários " action="listPessoas"/>
-		<p:commandButton value=" TESTE " action="teste.xhtml"/>
 	</h:form>
+	<p:outputLabel value="TESTE GESTOR" />
+	<p:commandButton value="Area Gestor" action="/ControleQualidade/usuário/principal.xhtml"/>
 </h:body>
 </html>

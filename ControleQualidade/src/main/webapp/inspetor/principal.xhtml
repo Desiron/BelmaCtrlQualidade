@@ -5,14 +5,15 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">	
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Área do Usuário</title>
+	<title>Área do Administrador</title>
 </h:head>
 <h:body>
 	<h:form id="Msg">
 		<p:growl id="ff" life="2000" />
 	</h:form>
-	<p:outputLabel value="TESTE USUÁRIO" />
+	<p:outputLabel value="TESTE Inspetor" />
+	<p:commandButton value="Area Inspetor" action="/ControleQualidade/usuário/principal.xhtml"/>
 </h:body>
 </html>
