@@ -22,9 +22,9 @@ public class RedirecionaPagina implements AuthenticationSuccessHandler {
 			if(roles.contains("ROLE_ADMINISTRADOR")) {
 				response.sendRedirect("/ControleQualidade/admin/principal.xhtml");
 			}else if(roles.contains("ROLE_INSPETOR")) {
-				response.sendRedirect("/ControleQualidade/inspetor/principal.xhtml");
-			}else if(roles.contains("ROLE_GESTOR")) {			
-				response.sendRedirect("/ControleQualidade/gestor/principal.xhtml");
+				response.sendRedirect("/ControleQualidade/inspetor/areainspetor.xhtml");		
+		}else if(roles.contains("ROLE_GESTOR")) {
+			response.sendRedirect("/ControleQualidade/gestor/areagestor.xhtml");
 		}
 	}
 }

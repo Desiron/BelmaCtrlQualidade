@@ -4,7 +4,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.belma</groupId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 	<name>ControleQualidade</name>
 
 	<properties>
@@ -55,6 +54,10 @@
 			<version>6.0</version>
 		</dependency>
 		
+
+
+
+
 		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -96,4 +99,5 @@
 		</repository>
 	</repositories>
 	<artifactId>ControleQualidade</artifactId>
+	<packaging>war</packaging>
 </project>

@@ -21,7 +21,7 @@ public class formRos800 {
 		private int id;
 		
 		@Column(name="form_dataform", nullable = true)
-		private Date dataFormulario;
+		private Date dataFormulario; 
 		
 		@Column(name="form_datalinha", nullable = true)
 		private Date dataLinha;
@@ -35,7 +35,7 @@ public class formRos800 {
 		
 		@Column(name="form_teto", length = 2, nullable = true)
 		private String teto;
-		
+		 
 		@Column(name="form_pesoassmin", nullable = true)
 		private float pesoAssMin;
 		
