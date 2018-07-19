@@ -1,8 +1,8 @@
 DATABASE CtrlQualidade
 
 CREATE TABLE bel_prod (
-	prod_id int not null,
-	prod_descricao varchar(60)
+	prod_id INT PRIMARY KEY NOT NULL,
+	prod_descricao VARCHAR(60)
 );
 
 INSERT INTO bel_prod (prod_id, prod_descricao) VALUES 
@@ -123,14 +123,68 @@ INSERT INTO bel_prod (prod_id, prod_descricao) VALUES
 ,(284,'WAFER TOCANTINS CHOCOLATE 30X110G');
 
 CREATE TABLE bel_pessoa (
-pes_id	serial primary key NOT NULL,
-pes_nome	varchar(60) NOT NULL,
-pes_usuario	varchar(40),
-pes_senha	varchar(32) NOT NULL,
-pes_tipo varchar(20) NOT NULL
+pes_id	SERIAL PRIMARY KEY NOT NULL,
+pes_nome	VARCHAR(60) NOT NULL,
+pes_usuario	VARCHAR(40) NOT NULL,
+pes_senha	VARCHAR(32) NOT NULL,
+pes_tipo VARCHAR(20) NOT NULL
 );
 
 INSERT INTO bel_pessoa (pes_nome, pes_usuario, pes_senha, pes_tipo) VALUES 
 ('ADMIN','admin', 'admin', 'ROLE_ADMINISTRADOR'),
-('USUÁRIO','usuario', 'usuario', 'ROLE_CLIENTE');
+('GESTOR','gestor', 'gestor', 'ROLE_GESTOR'),
+('INSPETOR','inspetor', 'inspetor', 'ROLE_INSPETOR');
+
+
+CREATE TABLE bel_formRos800(
+
+	/* Cabeçalho */
+	form_prod_id INT NOT NULL,
+	form_pes_id INT NOT NULL,	
+	form_id SERIAL PRIMARY KEY NOT NULL,
+	form_dataForm DATE NOT NULL,
+	form_dataLinha DATE NOT NULL,
+	form_status INT NOT NULL,
+	
+	/* Saída do forno */
+	form_lastro VARCHAR(2) NOT NULL,
+	form_teto VARCHAR(2) NOT NULL,
+	form_pesoAssMin FLOAT NOT NULL,
+	form_pesoAssMax FLOAT NOT NULL,
+	form_formaMin FLOAT,
+	form_fomaMax FLOAT ,
+	form_compMin FLOAT,
+	form_compMax FLOAT,
+	form_diamMin FLOAT,
+	form_diamMax FLOAT,
+	form_espeMin FLOAT NOT NULL,
+	form_espeMax FLOAT NOT NULL,
+	form_aspVisual VARCHAR(2) NOT NULL,
+	form_obsSaidaForno VARCHAR(500),
+	
+	/* Umidade*/
+	form_horaUmidade DATE NOT NULL,
+	form_porcUmidade DATE NOT NULL,	
+	form_obsUmidade VARCHAR(500),
+	
+	/* Pacotes */
+	form_pesoPacote FLOAT NOT NULL,
+	form_pesoPacoteUni FLOAT,
+	form_pesoUni FLOAT NOT NULL,
+	form_qtdBisc FLOAT,
+	form_embalagem VARCHAR(2) NOT NULL,
+	form_soldaVert VARCHAR(2) NOT NULL,
+	form_soldaSup VARCHAR(2) NOT NULL,
+	form_soldaInf VARCHAR(2) NOT NULL,
+	form_obsPacote VARCHAR(500),
+	
+	/* Codificação */
+	form_loteValPrima VARCHAR(2) NOT NULL,
+	form_loteValSecun VARCHAR(2),
+	form_etiquetaSecun VARCHAR(2) NOT NULL,
+	form_obsCodi VARCHAR(500) NOT NULL,
+	
+	CONSTRAINT rel_produto_form FOREIGN KEY (form_prod_id) REFERENCES bel_prod (prod_id),
+	CONSTRAINT rel_pessoa_form FOREIGN KEY (form_pes_id) REFERENCES bel_pessoa (pes_id)
+);
 
