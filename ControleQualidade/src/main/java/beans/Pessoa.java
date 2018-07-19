@@ -3,12 +3,19 @@ package beans;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+<<<<<<< Upstream, based on origin/desiron
 
+=======
+import java.util.List;
+
+import javax.persistence.CascadeType;
+>>>>>>> d7b8422 Controller do formulário pronto v1.0
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -60,6 +67,7 @@ public class Pessoa {
 		return senha;
 	}
 
+<<<<<<< Upstream, based on origin/desiron
 	public void setSenha(String senha) {		
 		MessageDigest md = null;
 		try {
@@ -68,6 +76,16 @@ public class Pessoa {
 			e.printStackTrace();
 		}
 		BigInteger hash = new BigInteger(1, md.digest(senha.getBytes()));		
+=======
+	public void setSenha(String senha) {
+		MessageDigest md = null;
+		try {
+			md = MessageDigest.getInstance("MD5");
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		BigInteger hash = new BigInteger(1, md.digest(senha.getBytes()));
+>>>>>>> d7b8422 Controller do formulário pronto v1.0
 		this.senha = hash.toString(16);
 	}
 
@@ -79,5 +97,15 @@ public class Pessoa {
 		this.tipo = tipo;
 	}
 	
+	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL )
+	private List<formRos800> formRos800;
+
+	public List<formRos800> getFormRos800() {
+		return formRos800;
+	}
+
+	public void setFormRos800(List<formRos800> formRos800) {
+		this.formRos800 = formRos800;
+	}	
 	
 }

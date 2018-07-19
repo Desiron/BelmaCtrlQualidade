@@ -22,9 +22,15 @@ public class RedirecionaPagina implements AuthenticationSuccessHandler {
 			if(roles.contains("ROLE_ADMINISTRADOR")) {
 				response.sendRedirect("/ControleQualidade/admin/principal.xhtml");
 			}else if(roles.contains("ROLE_INSPETOR")) {
+<<<<<<< Upstream, based on origin/desiron
 				response.sendRedirect("/ControleQualidade/inspetor/areainspetor.xhtml");		
 		}else if(roles.contains("ROLE_GESTOR")) {
 			response.sendRedirect("/ControleQualidade/gestor/areagestor.xhtml");
+=======
+				response.sendRedirect("/ControleQualidade/inspetor/principal.xhtml");
+			}else if(roles.contains("ROLE_GESTOR")) {			
+				response.sendRedirect("/ControleQualidade/gestor/principal.xhtml");
+>>>>>>> d7b8422 Controller do formulário pronto v1.0
 		}
 	}
 }
