@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">	
+<h:head>
+	<title>Ã�rea do UsuÃ¡rio</title>	
+</h:head>
+<h:body>
+
+	<h:form id="Msg">
+		<p:growl id="ff" life="2000" />
+	</h:form>
+	
+	<h:form id="formulario">
+		<p:fieldset legend="Controle de Processo" toggleable="true" toggleSpeed="500">	
+		   	<p:panelGrid columns="2" >
+			   	<p:outputLabel for="novoForm" value="Produto:"  />
+			    <p:selectOneMenu id="novoForm" value="#{ctrlProcessoCtrl.produto}" panelStyle="width:180px" effect="fade" style="width:160px" filter="true" filterMatchMode="contains">
+			    	<f:selectItems value="#{ctrlProcessoCtrl.listaProdutos}" var="prod" itemLabel="#{prod.descricao}" itemValue="#{prod.id}" />
+				</p:selectOneMenu>
+				<p:commandButton value="+ Novo" action="#{ctrlProcessoCtrl.novoForm}" />
+			</p:panelGrid>
+		</p:fieldset>
+	</h:form>
+	
+</h:body>
+</html>
+
+
+
+
+ <p:panel styleClass="teste">   
+	  	<div class="highlight">
+		    <p:dataTable rows="10" paginator="true"   style="border:none;" styleClass="highlight" var="form" value="#{fomularioCtrl.listaFormularios}" widgetVar="formul">
+			    <div align="center">
+			    
+			    <f:facet name="header">
+		            <p:outputPanel>
+		                <h:outputText value="Procurar" />
+		                <p:inputText id="globalFilter" onkeyup="PF('formul').filter()" style="width:150px" placeholder="biscoto..."/>
+		            </p:outputPanel>
+		        </f:facet>
+			    
+			    <p:column style="width:100px"  headerText="ID">
+			    <div align="center">
+			    <f:facet name="header">
+					<h:outputText value="Selecionar"/>
+				</f:facet>
+			        <h:outputText rendered="#{form.status == 1}" value="#{form.id}" />
+			        </div>
+			    </p:column>
+			    
+			     <p:column style="width:40px" headerText="ID">
+			     <div align="center">
+			    <f:facet name="header">
+					<h:outputText value="ID"/>
+				</f:facet>
+					
+			        <h:outputText value="#{form.id}" />
+			        </div>
+			    </p:column>
+			 
+			   <p:column style="width:180px" headerText="Abertura Formulário">
+			      <div align="center">
+			     <f:facet name="header">
+					<h:outputText value="Abertura Formulário"/>
+				</f:facet>
+			        <h:outputText value="#{form.dataFormulario}" >
+			        <f:convertDateTime pattern="dd/MM/yyyy HH:mm" locale="pt" timeZone="America/Sao_Paulo"/>
+			        </h:outputText>
+			        </div>
+			    </p:column>
+			    
+			    <p:column headerText="Produto">
+			     <f:facet name="header">
+					<h:outputText value="Produto"/>
+				</f:facet>
+			        <h:outputText value="#{form.produto.descricao}" />
+			    </p:column>
+			 
+			    <p:column style="width:180px"   headerText="Abertura da Linha">
+			     <div align="center">
+			     <f:facet name="header">
+					<h:outputText value="Abertura da Linha"/>
+				</f:facet>
+			        <h:outputText value="#{form.dataLinha}" >
+			        <f:convertDateTime pattern="dd/MM/yyyy HH:mm" locale="pt" timeZone="America/Sao_Paulo"/>
+			        </h:outputText>
+			        </div>
+			    </p:column>
+			 
+			 
+			    <p:column style="width:80px"  headerText="Status">
+			     <div align="center">
+			     <f:facet name="header">
+					<h:outputText value="Status"/>
+				</f:facet>
+					<h:button rendered="#{form.status == 1}" value="Aberto" />
+					<p:outputLabel rendered="#{form.status != 1}" value="Fechado" />
+			    </div>
+			    </p:column>
+			    </div>
+			</p:dataTable>
+			</div>
+	    </p:panel>

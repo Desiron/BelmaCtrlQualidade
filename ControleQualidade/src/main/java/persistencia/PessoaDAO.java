@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import beans.Pessoa;
+import negocio.PessoaCtrl;
 
 public class PessoaDAO implements Serializable {
 
@@ -54,13 +55,13 @@ public class PessoaDAO implements Serializable {
 		return lista;
 	}
 	
-	/*public static Pessoa pessoaQueFazFormulario() {
-		String email = PessoaCtrl.usuarioLogado();
+	public static Pessoa pessoaQueFazFormulario() {
+		String usuario = PessoaCtrl.usuarioLogado();
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
-		Query consulta = sessao.createQuery("from Pessoa where pes_email='"+email+"'");
+		Query consulta = sessao.createQuery("from Pessoa where pes_usuario='"+usuario+"'");
 		List<Pessoa> pesssoaLogada = consulta.list();
 		Pessoa peLog = pesssoaLogada.get(0);				
 		sessao.close();
 		return peLog;
-	}*/
+	}
 }

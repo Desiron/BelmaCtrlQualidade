@@ -9,15 +9,21 @@
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<http auto-config="true">
-		<intercept-url pattern="/cliente/**"
-			access="ROLE_CLIENTE,ROLE_ADMINISTRADOR" />
+	
 		<intercept-url pattern="/admin/**"
 			access="ROLE_ADMINISTRADOR" />
+			
+		<intercept-url pattern="/gestor/**"
+			access="ROLE_ADMINISTRADOR,ROLE_GESTOR" />
+			
+		<intercept-url pattern="/inspetor/**"
+			access="ROLE_INSPETOR,ROLE_GESTOR,ROLE_ADMINISTRADOR" />		
+			
 		<form-login login-page="/publico/login.xhtml"
-			always-use-default-target="false"
+			always-use-default-target="true"
 			authentication-success-handler-ref="successHandler"
 			authentication-failure-url="/publico/login.xhtml?login_error=1" />
-		<logout logout-success-url="/publico/index.xhtml" />
+		<logout logout-success-url="/publico/login.xhtml" />
 		<remember-me />
 	</http>
 	<beans:bean id="successHandler"

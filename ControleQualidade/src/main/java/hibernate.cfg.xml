@@ -24,5 +24,8 @@
 
 		<!-- Mapeamento das classes -->
 		<mapping class="beans.Pessoa" />
+		<mapping class="beans.Produto" />
+		<mapping class="beans.Formulario" />
+		<mapping class="beans.Rota" />
 	</session-factory>
 </hibernate-configuration>
